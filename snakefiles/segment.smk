@@ -27,6 +27,6 @@ rule segmentBam:
     envmodules: "chromhmm/1.25"
     threads: 12
     shell: """
-        ChromHMM.sh -Xms1g -Xmx10g LearnModel -noautoopen -p {threads} {params.binarizedBams} {params.out_dir} {params.num_states} {params.genome}
+        _JAVA_OPTIONS='-Djava.awt.headless=true' ChromHMM.sh -Xms1g -Xmx10g LearnModel -noautoopen -p {threads} {params.binarizedBams} {params.out_dir} {params.num_states} {params.genome}
         """
 
