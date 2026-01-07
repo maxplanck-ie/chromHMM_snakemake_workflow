@@ -9,7 +9,7 @@ rule binarizeBam:
     envmodules: "chromhmm/1.25"
     log: "logs/binarizeBam.log"
     shell: """
-        ChromHMM.sh BinarizeBam -paired {input.chrom_sizes} {input.bam_dir} {input.sample_table} {params.out_dir} 2>{log}
+        ChromHMM.sh BinarizeBam -Xms1g -Xmx20g -paired {input.chrom_sizes} {input.bam_dir} {input.sample_table} {params.out_dir} 2>{log}
         """
 
 rule segmentBam:
@@ -27,6 +27,6 @@ rule segmentBam:
     envmodules: "chromhmm/1.25"
     threads: 12
     shell: """
-        _JAVA_OPTIONS='-Djava.awt.headless=true' ChromHMM.sh -Xms1g -Xmx10g LearnModel -noautoopen -p {threads} {params.binarizedBams} {params.out_dir} {params.num_states} {params.genome}
+        _JAVA_OPTIONS='-Djava.awt.headless=true' ChromHMM.sh -Xms1g -Xmx40g LearnModel -noautoopen -p {threads} {params.binarizedBams} {params.out_dir} {params.num_states} {params.genome}
         """
 
