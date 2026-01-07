@@ -13,7 +13,7 @@ jobs: 20
 use-envmodules: True
 cluster-generic-cancel-cmd: "ccancel.sh"
 latency-wait: 300
-printshellcommands: True
+printshellcmds: True
 default-resources:
   mem: 1G
   time: 1440
