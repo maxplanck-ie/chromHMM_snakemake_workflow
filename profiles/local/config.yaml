@@ -1,0 +1,16 @@
+cores: 4
+use-envmodules: True
+printshellcmds: True
+default-resources:
+  mem: 1G
+  time: 300
+  partition: bioinfo
+set-resources:
+  binarizeBam:
+    mem: 20G
+  segmentBam:
+    mem: 40G
+  overlapEnrichment:
+    mem: 10G
+  neighbourhoodEnrichment:
+    mem: 10G

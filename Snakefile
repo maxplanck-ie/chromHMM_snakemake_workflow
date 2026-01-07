@@ -52,6 +52,11 @@ include: "snakefiles/organism.smk"
 include: "snakefiles/segment.smk"
 include: "snakefiles/enrichments.smk"
 
+localrules:
+  download_tgz,
+  extract_archive
+
+
 rule all:
     input:
         expand("model_{k}_output/{group}_{k}_segments.bed",k=num_states,group=get_groups(config["cellmarkfiletable"])),
